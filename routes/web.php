@@ -21,4 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/interesados','App\Http\Controllers\InteresadoController@index')->name('interesados');
+});
+
 require __DIR__.'/auth.php';

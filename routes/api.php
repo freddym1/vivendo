@@ -24,3 +24,4 @@ Route::get('proyectos/ciudad/{id}','App\Http\Controllers\ProyectoController@proy
 Route::get('proyectos/categoria/{id}','App\Http\Controllers\ProyectoController@proyectosPorCategoria');
 Route::get('proyectos/{id}','App\Http\Controllers\ProyectoController@proyectoPorId');
 Route::get('proyectos/departamento/{id}','App\Http\Controllers\ProyectoController@proyectosPorDepartamento');
+Route::post('interesados','App\Http\Controllers\InteresadoController@store');

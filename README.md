@@ -1,9 +1,9 @@
 ### Requerimientos
 
-PHP 8
-Mysql
-Composer
-Laravel 9
+- PHP 8
+- Mysql
+- Composer
+- Laravel 9
 
 ### Cómo ejecutar el API
 
@@ -90,7 +90,7 @@ http://127.0.0.1:8000/interesados
 
 ### Filtros y acciones de Datatable interesados
 
-Buscar
-Exportar Excel
-Filtrar por columnas
-Filtrar cantidad de registros
+- Buscar
+- Exportar Excel
+- Filtrar por columnas
+- Filtrar cantidad de registros

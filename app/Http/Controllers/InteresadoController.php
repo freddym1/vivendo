@@ -7,6 +7,9 @@ use App\Models\Interesado;
 use App\Models\Proyecto;
 use Illuminate\Support\Facades\Validator;
 
+use App\Exports\InteresadosExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class InteresadoController extends Controller
 {
@@ -162,6 +165,13 @@ class InteresadoController extends Controller
     public function destroy(Interesado $interesado)
     {
         //
+    }
+
+    // Datos a exportar
+    public function export() 
+    {
+        $export = new InteresadosExport([]);
+        return Excel::download($export, 'interesados.xlsx');
     }
 
 }

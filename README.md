@@ -1,9 +1,9 @@
 ### Requerimientos
 
 - PHP 8
+  - Extensión php_gd habilitada
 - Mysql
 - Composer
-- Laravel 9
 
 ### Cómo ejecutar el API
 
@@ -14,11 +14,18 @@ git clone https://github.com/freddym1/vivendo.git
 cd vivendo
 ```
 
-Instalar y configurar conexión a base de datos
+Instalar dependencias
 
 ```
 composer install
-.env
+```
+
+En la raíz del proyecto realizar una copia del archivo `.env.example` y renombrarlo a `.env` editarlo y configurar la conexión a la base de datos.
+
+Generar key de la aplicación:
+
+```
+php artisan key:generate
 ```
 
 Ejecutar migraciones 
@@ -27,10 +34,15 @@ Ejecutar migraciones
 php artisan migrate
 ```
 
-Crear datos de ejemplo (ejecutar una sola vez)
+Insertar datos de ejemplo (ejecutar una sola vez). Se insertan datos de ejemplo en todas las tablas exepto en las tablas interesados y usuarios.
 
 ```
 php artisan db:seed
+```
+
+Para evitar error Vite manifest not found, instalar y ejecutar npm install && npm run dev.
+```
+npm install && npm run dev
 ```
 
 Correr el servidor web
@@ -39,7 +51,7 @@ Correr el servidor web
 php artisan serve
 ```
 
-### Rutas 
+### Rutas API
 
 Reemplazar {id} por algunos de los valores registrados
 
@@ -71,7 +83,8 @@ Enviar registro de interesado de prueba
 
 ```
 http://127.0.0.1:8000/api/interesados/
-Formato requerido:
+
+Dato de ejemplo:
 {
     "nombre": "John doe",
     "correo": "John@google.com",
@@ -82,15 +95,17 @@ Formato requerido:
 }
 ```
 
-Ver interesados (accesible solo para usuarios registrados)
+### Otras rutas
+
+Ver interesados (requiere registrar nuevo usuario)
 
 ```
 http://127.0.0.1:8000/interesados
 ```
 
-### Filtros y acciones de Datatable interesados
+### Filtros y acciones Datatable en ruta de interesados
 
-- Buscar
-- Exportar Excel
-- Filtrar por columnas
-- Filtrar cantidad de registros
+- Buscar (permite buscar por términos de cualquier campo)
+- Exportar Excel (exporta datos seleccionados en formato XLS)
+- Filtrar por columnas (muestra u oculta filas del Datatable)
+- Filtrar por cantidad de registros (filtra la cantidad de registros mostrados)

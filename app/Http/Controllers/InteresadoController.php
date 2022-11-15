@@ -95,7 +95,8 @@ class InteresadoController extends Controller
                                 // return response()->json('ya escribio pero han pasado más de 24 horas y puede guardar');
                                 $interesado->save();
 
-                                return $request;
+                                // return $request;
+                                return response()->json('Datos guardados exitosamente');
 
                             } else {
 
@@ -109,7 +110,8 @@ class InteresadoController extends Controller
                     // return response()->json('no hay coincidencias de interesados y puede guardar');
                     $interesado->save();
 
-                    return $request;
+                    // return $request;
+                    return response()->json('Datos guardados exitosamente');
                 }
                 
             } else {

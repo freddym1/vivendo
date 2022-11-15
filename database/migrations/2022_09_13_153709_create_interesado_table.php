@@ -21,7 +21,7 @@ class CreateInteresadoTable extends Migration
             $table->string('ciudad',30);
             $table->string('pais',30);
             $table->unsignedBigInteger('proyecto_id');
-            $table->date('fecha');
+            $table->datetime('fecha');
             $table->timestamps();
 
             $table->foreign('proyecto_id')->references('id')->on('proyecto');
